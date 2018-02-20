@@ -15,6 +15,14 @@ contract('SolidMath', async (accounts) => {
 
     result = await library.binomialCoefficient.call(360, 2);
     assert.equal(result, 64620, "Coefficient calculated incorreclty.");
+
+    // NOTE: ULTRA LARGE NUMBER -> Should throw error
+    // result = await library.binomialCoefficient.call(360, 359);
+    // assert.equal(result, ?, "Coefficient calculated incorreclty.");
+
+    // NOTE: NEGATIVE NUMBER -> Should throw error
+    // result = await library.binomialCoefficient.call(360, -1);
+    // assert.equal(result, ?, "Coefficient calculated incorreclty.");
   });
 
 });

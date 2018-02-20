@@ -4,16 +4,16 @@ contract SolidMath {
 
   // BINOMIAL COEFFICIENT
   // https://en.wikipedia.org/wiki/Binomial_coefficient
-  /*
 
-    EXAMPLE:
+  // EXAMPLE:
 
-        10!        10 * 9
-    ----------- = --------  => n = 10; k = 2, start = 9
-    (10 - 2)!2!       2
+  //     10!        10 * 9
+  // ----------- = --------  => n = 10; k = 2, start = 9
+  // (10 - 2)!2!       2
 
-  */
   function binomialCoefficient(uint n, uint k) public pure returns (uint) {
+    require(n >= 0 && k >= 0);
+
     if (k == 0) {
       return 1;
     } else {
@@ -35,5 +35,8 @@ contract SolidMath {
       return numerator / denominator;
     }
   }
+
+  // TODO: Create concept of "multipliable" -> Can two numbers safely be multiplied
+  //       without being > 2**256
 
 }
