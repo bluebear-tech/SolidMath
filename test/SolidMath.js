@@ -25,4 +25,15 @@ contract('SolidMath', async (accounts) => {
     // assert.equal(result, ?, "Coefficient calculated incorreclty.");
   });
 
+  it("adds two fractions and returns a fraction", async () => {
+    result = await library.fractionAddition.call([2,3], [1,2]);
+    assert.equal(result[0].toNumber(), 7, "Numerator calculated incorreclty.");
+    assert.equal(result[1].toNumber(), 6, "Denominator calculated incorreclty.");
+
+    // NOTE: LARGE NUMBERS -> Should throw error
+    // result = await library.fractionAddition.call([2**240,3], [2**240,2]);
+    // assert.equal(result[0].toNumber(), 7, "Numerator calculated incorreclty.");
+    // assert.equal(result[1].toNumber(), 6, "Denominator calculated incorreclty.");
+  });
+
 });
